@@ -3,12 +3,17 @@ import matplotlib.pyplot as plt
 import seaborn as sns
 import streamlit as st
 import numpy as np
+import os
 from datetime import datetime
 
 sns.set(style='dark')
 
+#Menggunakan absolute path
+current_dir = os.path.dirname(os.path.abspath(__file__))
+data_path = os.path.join(current_dir, "main_data.csv")
+
 # Load datasets
-day_df = pd.read_csv("main_data.csv")
+day_df = pd.read_csv(data_path)
 
 # Data preprocessing
 day_df.rename(columns={
