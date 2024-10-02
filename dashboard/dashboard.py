@@ -1,3 +1,4 @@
+import os
 import pandas as pd
 import matplotlib.pyplot as plt
 import seaborn as sns
@@ -7,6 +8,18 @@ from datetime import datetime
 
 # Set style seaborn
 sns.set(style='dark')
+
+# Cek apakah file day.csv ada
+if os.path.exists('day.csv'):
+    day_df = pd.read_csv('day.csv')
+else:
+    st.error("File day.csv tidak ditemukan")
+
+# Cek apakah file hour.csv ada
+if os.path.exists('hour.csv'):
+    hour_df = pd.read_csv('hour.csv')
+else:
+    st.error("File hour.csv tidak ditemukan")
 
 # Load datasets
 day_df = pd.read_csv("day.csv")
